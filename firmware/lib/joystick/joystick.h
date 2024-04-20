@@ -7,17 +7,10 @@ extern "C" {
 
 #include <stdio.h>
 
-struct joystick {
-  uint8_t  pin;
-  uint16_t data;
-} __attribute__((packed));
-
-struct joystick_data {
-  uint16_t x;
-  uint16_t y;
-};
-
 #define JOYSTICK_DELTA 20
+struct joystick {
+  uint8_t pin;
+} __attribute__((packed));
 
 void joystick_init(struct joystick* joystick, uint8_t pin);
 uint16_t joystick_read(struct joystick* joystick);

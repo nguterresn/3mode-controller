@@ -10,6 +10,5 @@ void joystick_init(struct joystick* joystick, uint8_t pin)
 
 uint16_t joystick_read(struct joystick* joystick)
 {
-  joystick->data = analogRead(joystick->pin);
-  return joystick->data;
+  return analogRead(joystick->pin);
 }

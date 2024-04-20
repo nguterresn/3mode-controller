@@ -21,7 +21,7 @@ static struct gui* head;
 
 static volatile bool gui_has_changed = false;
 static void screen_loop(void* v);
-
+static void screen_refresh(void);
 static void (*change_comm_stack)(enum gui_name) = NULL; // To change the communication stack
 
 Adafruit_SSD1306 display(SCREEN_WIDTH, SCREEN_HEIGHT, &Wire, -1);
@@ -47,8 +47,7 @@ void screen_init(void (*comm_stack_init)(enum gui_name))
     for (;;) {
     }
   }
-  display.drawBitmap(0, 0, head->bitmap, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE);
-  display.display();
+  screen_refresh();
 
   change_comm_stack = comm_stack_init;
 
@@ -65,9 +64,7 @@ static void screen_loop(void* v)
   (void)v;
   for (;;) {
     if (gui_has_changed) {
-      display.clearDisplay();
-      display.drawBitmap(0, 0, head->bitmap, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE);
-      display.display();
+      screen_refresh();
       if (change_comm_stack != NULL) {
         change_comm_stack(head->name); // change the communication stack
       }
@@ -75,4 +72,11 @@ static void screen_loop(void* v)
     }
     vTaskDelay(300);
   }
+}
+
+static void screen_refresh(void)
+{
+  display.clearDisplay();
+  display.drawBitmap(0, 0, head->bitmap, SCREEN_WIDTH, SCREEN_HEIGHT, WHITE);
+  display.display();
 }
