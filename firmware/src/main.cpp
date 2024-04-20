@@ -1,11 +1,10 @@
 #include <Arduino.h>
-#include <SPI.h>
-#include "RF24.h"
 #include "gpio_list.h"
 #include "screen.h"
 #include "joystick.h"
 #include "button.h"
 #include "wifi_app.h"
+#include "rf_app.h"
 #include "payload.h"
 
 static struct joystick joystick_speed;
@@ -44,6 +43,7 @@ void loop()
       (y + JOYSTICK_DELTA < _y || _y + JOYSTICK_DELTA < y)) {
     x = _x;
     y = _y;
+    Serial.printf("X %d y %d", x, y);
     comm_stack_transmit(screen_get_name(), x, y);
   }
 
@@ -55,19 +55,21 @@ void comm_stack_init(enum gui_name gui)
   if (xSemaphoreTake(mutex, (TickType_t)10)) {
     if (gui == WIFI) {
       // if wifi gui enabled - esp now
+      Serial.printf("rf_app_deinit -> wifi_app_init\n");
+      rf_app_deinit();
       wifi_app_init();
-      Serial.printf("wifi_app_init\n");
       // disable others
     }
     else if (gui == RF) {
       // else if rf gui enabled - rf24
-      Serial.printf("wifi_app_deinit\n");
+      Serial.printf("wifi_app_deinit -> rf_app_init \n");
       wifi_app_deinit();
+      rf_app_init();
     }
     else {
-      // else - ble
-      Serial.printf("wifi_app_deinit2\n");
+      Serial.printf("BLE is not implemented yet, deinit others\n");
       wifi_app_deinit();
+      rf_app_deinit();
     }
     xSemaphoreGive(mutex);
   }
@@ -84,8 +86,7 @@ void comm_stack_transmit(enum gui_name gui, uint16_t x, uint16_t y)
       wifi_app_transmit(data_to_send, sizeof(data_to_send));
     }
     else if (gui == RF) {
-    }
-    else {
+      rf_app_transmit(data_to_send, sizeof(data_to_send));
     }
     xSemaphoreGive(mutex);
   }
