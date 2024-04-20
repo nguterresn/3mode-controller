@@ -69,7 +69,7 @@ void comm_stack_init(enum gui_name gui)
 
 void comm_stack_transmit(enum gui_name gui, uint16_t x, uint16_t y)
 {
-  uint8_t data_to_send[2] = { 0 };
+  uint8_t data_to_send[2] = { 0 }; // X (-100 : 100), Y (-100 : 100)
 
   payload_build(x, y, data_to_send);
 
