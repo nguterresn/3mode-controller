@@ -4,8 +4,7 @@
 #include <stdio.h>
 
 void wifi_app_init();
-void wifi_app_start();
-void wifi_app_stop();
+void wifi_app_deinit();
 
 int wifi_app_transmit(uint8_t* data, uint8_t data_length);
 

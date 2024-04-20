@@ -17,9 +17,13 @@ static uint16_t x, y;
 void comm_stack_init(enum gui_name gui);
 void comm_stack_transmit(enum gui_name gui, uint16_t x, uint16_t y);
 
+SemaphoreHandle_t mutex = NULL;
+
 void setup()
 {
   Serial.begin(9600);
+
+  mutex = xSemaphoreCreateMutex();
 
   joystick_init(&joystick_speed, GPIO_JOYSTICK_Y);
   joystick_init(&joystick_direction, GPIO_JOYSTICK_X);
@@ -28,8 +32,7 @@ void setup()
 
   button_init(&button, GPIO_BUTTON_MOVE, screen_interrupt);
 
-  // Init != start
-  wifi_app_init();
+  wifi_app_init(); // Set as default.
 }
 
 void loop()
@@ -49,21 +52,24 @@ void loop()
 
 void comm_stack_init(enum gui_name gui)
 {
-  if (gui == WIFI) {
-    // if wifi gui enabled - esp now
-    wifi_app_start();
-    Serial.printf("wifi_app_init\n");
-    // disable others
-  }
-  else if (gui == RF) {
-    // else if rf gui enabled - rf24
-    Serial.printf("wifi_app_deinit\n");
-    wifi_app_stop();
-  }
-  else {
-    // else - ble
-    Serial.printf("wifi_app_deinit2\n");
-    wifi_app_stop();
+  if (xSemaphoreTake(mutex, (TickType_t)10)) {
+    if (gui == WIFI) {
+      // if wifi gui enabled - esp now
+      wifi_app_init();
+      Serial.printf("wifi_app_init\n");
+      // disable others
+    }
+    else if (gui == RF) {
+      // else if rf gui enabled - rf24
+      Serial.printf("wifi_app_deinit\n");
+      wifi_app_deinit();
+    }
+    else {
+      // else - ble
+      Serial.printf("wifi_app_deinit2\n");
+      wifi_app_deinit();
+    }
+    xSemaphoreGive(mutex);
   }
 }
 
@@ -73,11 +79,14 @@ void comm_stack_transmit(enum gui_name gui, uint16_t x, uint16_t y)
 
   payload_build(x, y, data_to_send);
 
-  if (gui == WIFI) {
-    wifi_app_transmit(data_to_send, sizeof(data_to_send));
-  }
-  else if (gui == RF) {
-  }
-  else {
+  if (xSemaphoreTake(mutex, (TickType_t)10)) {
+    if (gui == WIFI) {
+      wifi_app_transmit(data_to_send, sizeof(data_to_send));
+    }
+    else if (gui == RF) {
+    }
+    else {
+    }
+    xSemaphoreGive(mutex);
   }
 }
