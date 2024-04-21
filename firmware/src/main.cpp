@@ -3,9 +3,11 @@
 #include "screen.h"
 #include "joystick.h"
 #include "button.h"
-#include "wifi_app.h"
-#include "rf_app.h"
 #include "payload.h"
+
+#include "app/wifi/wifi_app.h"
+#include "app/rf/rf_app.h"
+#include "app/ble/ble_app.h"
 
 static struct joystick joystick_speed;
 static struct joystick joystick_direction;
@@ -54,22 +56,19 @@ void comm_stack_init(enum gui_name gui)
 {
   if (xSemaphoreTake(mutex, (TickType_t)10)) {
     if (gui == WIFI) {
-      // if wifi gui enabled - esp now
-      Serial.printf("rf_app_deinit -> wifi_app_init\n");
       rf_app_deinit();
+      ble_app_deinit();
       wifi_app_init();
-      // disable others
     }
     else if (gui == RF) {
-      // else if rf gui enabled - rf24
-      Serial.printf("wifi_app_deinit -> rf_app_init \n");
       wifi_app_deinit();
+      ble_app_deinit();
       rf_app_init();
     }
     else {
-      Serial.printf("BLE is not implemented yet, deinit others\n");
       wifi_app_deinit();
       rf_app_deinit();
+      ble_app_init();
     }
     xSemaphoreGive(mutex);
   }

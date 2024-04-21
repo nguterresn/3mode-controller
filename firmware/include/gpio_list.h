@@ -1,8 +1,8 @@
 #ifndef GPIO_LIST_H
 #define GPIO_LIST_H
 
-#define GPIO_JOYSTICK_Y  39 // Must be ADC1
-#define GPIO_JOYSTICK_X  36 // Must be ADC1
+#define GPIO_JOYSTICK_Y  36 // Must be ADC1
+#define GPIO_JOYSTICK_X  39 // Must be ADC1
 
 #define GPIO_RF_SPI_CE   17
 #define GPIO_RF_SPI_CNS  5

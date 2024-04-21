@@ -1,5 +1,4 @@
 #include "payload.h"
-#include <string.h>
 #include <Arduino.h>
 
 void payload_build(uint16_t x, uint16_t y, uint8_t* out)
