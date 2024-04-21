@@ -74,12 +74,12 @@
     "files": [
       {
         "name": "3mode_controller.kicad_sch",
-        "open": true,
+        "open": false,
         "window": {
-          "display": 0,
-          "maximized": true,
-          "pos_x": 168,
-          "pos_y": 155,
+          "display": 1,
+          "maximized": false,
+          "pos_x": -2185,
+          "pos_y": 257,
           "size_x": 1440,
           "size_y": 875
         }
