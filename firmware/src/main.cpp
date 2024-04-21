@@ -31,7 +31,7 @@ void setup()
 
   screen_init(comm_stack_init);
 
-  button_init(&button, GPIO_BUTTON_MOVE, screen_interrupt);
+  button_init(&button, GPIO_BUTTON, screen_interrupt);
 
   wifi_app_init(); // Set as default.
 }

@@ -1,19 +1,34 @@
 #ifndef GPIO_LIST_H
 #define GPIO_LIST_H
 
-#define GPIO_JOYSTICK_Y  36 // Must be ADC1
-#define GPIO_JOYSTICK_X  39 // Must be ADC1
+// Source:
+// https://www.luisllamas.es/en/esp32-s3-hardware-details-pinout/
 
-#define GPIO_RF_SPI_CE   17
-#define GPIO_RF_SPI_CNS  5
-#define GPIO_RF_SPI_SCK  18
-#define GPIO_RF_SPI_MOSI 23
-#define GPIO_RF_SPI_MISO 19
+// On ESP32-S3
+// ADC1_CH0 - GPIO 1
+// ADC1_CH1 - GPIO 2
+// ADC1_CH2 - GPIO 3
+// ADC1_CH3 - GPIO 4
+// ADC1_CH4 - GPIO 5
+// ADC1_CH5 - GPIO 6
+// ADC1_CH6 - GPIO 7
+// ADC1_CH7 - GPIO 8
+// ADC1_CH8 - GPIO 9
+// ADC1_CH9 - GPIO 10
 
-#define GPIO_BUTTON_MOVE 4
+#define GPIO_JOYSTICK_Y  1  // Must be ADC1
+#define GPIO_JOYSTICK_X  2  // Must be ADC1
+
+#define GPIO_RF_SPI_CE   4  // whatever
+#define GPIO_RF_SPI_CNS  10 // SPI3
+#define GPIO_RF_SPI_SCK  12 // SPI3
+#define GPIO_RF_SPI_MOSI 11 // SPI3
+#define GPIO_RF_SPI_MISO 13 // SPI3
+
+#define GPIO_BUTTON 5  // whatever
 
 // 128×64 pixels 0.96 OLED
-#define GPIO_SCREEN_SCK  22
-#define GPIO_SCREEN_SDA  21
+#define GPIO_SCREEN_SCK  8
+#define GPIO_SCREEN_SDA  9
 
 #endif /* GPIO_LIST_H */
