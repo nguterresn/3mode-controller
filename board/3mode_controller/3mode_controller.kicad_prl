@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 37,
+    "active_layer": 0,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -63,8 +63,14 @@
       36,
       40
     ],
-    "visible_layers": "ff8ffff_ffffffff",
-    "zone_display_mode": 1
+    "visible_layers": "ffcfdff_ffffffff",
+    "zone_display_mode": 0
+  },
+  "git": {
+    "repo_password": "",
+    "repo_type": "",
+    "repo_username": "",
+    "ssh_key": ""
   },
   "meta": {
     "filename": "3mode_controller.kicad_prl",
@@ -73,27 +79,27 @@
   "project": {
     "files": [
       {
-        "name": "3mode_controller.kicad_sch",
-        "open": false,
-        "window": {
-          "display": 1,
-          "maximized": false,
-          "pos_x": -2185,
-          "pos_y": 257,
-          "size_x": 1440,
-          "size_y": 875
-        }
-      },
-      {
         "name": "3mode_controller.kicad_pcb",
-        "open": false,
+        "open": true,
         "window": {
           "display": 1,
           "maximized": true,
-          "pos_x": -1279,
-          "pos_y": 25,
+          "pos_x": 80,
+          "pos_y": 0,
           "size_x": 1279,
-          "size_y": 1415
+          "size_y": 900
+        }
+      },
+      {
+        "name": "3mode_controller.kicad_sch",
+        "open": true,
+        "window": {
+          "display": 0,
+          "maximized": true,
+          "pos_x": 0,
+          "pos_y": 25,
+          "size_x": 1440,
+          "size_y": 819
         }
       }
     ]
