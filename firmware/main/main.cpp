@@ -1,13 +1,12 @@
-//file: main.cpp
 #include "Arduino.h"
+#include "HardwareSerial.h"
 #include "gpio_list.h"
 #include "dip.h"
 #include "masks.h"
-#include "espnow.h"
 #include "joystick.h"
 #include "app.h"
-
-extern SemaphoreHandle_t sem;
+#include "espnow.h"
+#include "nrf24.h"
 
 static struct joystick js_x;
 static struct joystick js_y;
@@ -29,31 +28,28 @@ void setup()
   joystick_init(&js_y, GPIO_JOYSTICK_Y, GPIO_JOYSTICK_Y_IRQ);
 
   app_install(&app_esp_now, espnow_init, espnow_deinit, espnow_send, NULL);
+  app_install(&app_nrf, nrf24_init, nrf24_deinit, nrf24_send, NULL);
 
-  // app_install(&app_nrf NULL, NULL);
-  app = &app_esp_now; // Install as default;
+  change_app(&app_esp_now); // Install as default;
 }
 
 void loop()
 {
-  if (xSemaphoreTake(sem, 0)) {
+  // (1) Check DIP.
+  if (dip_has_changed()) {
     uint8_t read = dip_read();
-    Serial.printf("Value for reading it %x\n", (int)read);
-    // espnow_deinit();
+    Serial.printf("Value for the DIP4 '%02x'\n", (int)read);
 
-    // Decision maker!
     if (MASKED(read, MASK_NRF)) {
-      // Init nrf and load send function!
       change_app(&app_nrf);
     }
     else if (MASKED(read, MASK_ESP_NOW)) {
       change_app(&app_esp_now);
     }
-    else {
-      exit(-1);
-    }
+    // Other: nothing.
   }
 
+  // (2) Check Joysticks.
   if (joystick_has_moved(&js_x) != -1 || joystick_has_moved(&js_y) != -1) {
     struct js_stamp stamp = {
       .x = js_x.read,
@@ -65,6 +61,10 @@ void loop()
 
 static void change_app(struct app* next_app)
 {
+  if (next_app == app) {
+    return;
+  }
+
   if (app) {
     // Only deinit if there was a app installed.
     app->deinit();
