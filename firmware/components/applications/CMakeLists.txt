@@ -1,7 +1,8 @@
-idf_component_register(SRCS "nrf24.c" "espnow.cpp"
+idf_component_register(SRCS "app.c" "espnow.cpp" "nrf24.cpp"
   INCLUDE_DIRS "."
   PRIV_REQUIRES
-    include
+    utils
     arduino
     esp_wifi
+    mirf
 )

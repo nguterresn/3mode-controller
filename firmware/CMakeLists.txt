@@ -8,5 +8,5 @@ add_definitions(
   -DARDUINO_USB_MODE
   -DARDUINO_USB_CDC_ON_BOOT
 )
-
+set(EXTRA_COMPONENT_DIRS ${CMAKE_SOURCE_DIR}/components/rf24-port/components/mirf)
 project(3mode-controller)
