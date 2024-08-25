@@ -1,6 +1,10 @@
-.pio
 .vscode
-
 .DS_Store
 *.lck
+*.lock
+
+.cache
+build
+managed_components
+
 #auto_saved_files#
