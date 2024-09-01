@@ -1,10 +1,10 @@
 #ifndef MASKS_H_
 #define MASKS_H_
 
-#define MASK_NRF     (0x01)
-#define MASK_ESP_NOW (0x02)
-#define MASK_BLE     (0x03)
+#define DIP_ESP_NOW (0x01)
+#define DIP_NRF     (0x02)
+#define DIP_BLE     (0x03)
 
-#define MASKED(dip, mask) ((dip &mask) == mask)
+#define MASKED(dip, mask) (dip == mask)
 
 #endif /* MASKS_H_ */

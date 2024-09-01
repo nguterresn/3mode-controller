@@ -6,5 +6,7 @@
 .cache
 build
 managed_components
+*.old
+*.lock
 
 #auto_saved_files#

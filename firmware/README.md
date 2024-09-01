@@ -14,3 +14,7 @@ Based on [ESP-IDF v5.1.4](https://docs.espressif.com/projects/esp-idf/en/v5.1.4/
 ### Arduino
 
 - Installing [Arduino as a component](https://docs.espressif.com/projects/arduino-esp32/en/latest/esp-idf_component.html).
+
+### Concepts about nRF24L01+
+
+Channels control the frequency, pipes are a software term to channel.

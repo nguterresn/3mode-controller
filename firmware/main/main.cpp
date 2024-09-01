@@ -7,14 +7,15 @@
 #include "app.h"
 #include "espnow.h"
 #include "nrf24.h"
+#include <cstdint>
+#include <sys/types.h>
 
 static struct joystick js_x;
 static struct joystick js_y;
 static struct app app_esp_now;
 static struct app app_nrf;
 
-static struct app* app;
-static void change_app(struct app* next_app);
+static void check_and_change_app(void);
 
 void setup()
 {
@@ -30,23 +31,14 @@ void setup()
   app_install(&app_esp_now, espnow_init, espnow_deinit, espnow_send, NULL);
   app_install(&app_nrf, nrf24_init, nrf24_deinit, nrf24_send, NULL);
 
-  change_app(&app_esp_now); // Install as default;
+  check_and_change_app();
 }
 
 void loop()
 {
   // (1) Check DIP.
   if (dip_has_changed()) {
-    uint8_t read = dip_read();
-    Serial.printf("Value for the DIP4 '%02x'\n", (int)read);
-
-    if (MASKED(read, MASK_NRF)) {
-      change_app(&app_nrf);
-    }
-    else if (MASKED(read, MASK_ESP_NOW)) {
-      change_app(&app_esp_now);
-    }
-    // Other: nothing.
+    check_and_change_app();
   }
 
   // (2) Check Joysticks.
@@ -55,20 +47,25 @@ void loop()
       .x = js_x.read,
       .y = js_y.read,
     };
-    app->send(&stamp);
+    app_send(&stamp);
   }
 }
 
-static void change_app(struct app* next_app)
+static void check_and_change_app(void)
 {
-  if (next_app == app) {
-    return;
-  }
+  uint8_t read = dip_read();
 
-  if (app) {
-    // Only deinit if there was a app installed.
-    app->deinit();
+  Serial.printf("Value for the DIP4 '%02x'\n", (int)read);
+  switch (read) {
+  case DIP_ESP_NOW:
+    app_next(&app_esp_now);
+    break;
+  case DIP_NRF:
+    app_next(&app_nrf);
+    break;
+  default:
+    // Other: nothing.
+    app_next(NULL);
+    break;
   }
-  app = next_app;
-  app->init();
 }
