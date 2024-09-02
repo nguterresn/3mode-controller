@@ -3178,20 +3178,15 @@
 				)
 			)
 		)
-		(symbol "Regulator_Linear:AMS1117-3.3"
+		(symbol "Regulator_Linear:AP2112K-3.3"
+			(pin_names
+				(offset 0.254)
+			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "U"
-				(at -3.81 3.175 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "AMS1117-3.3"
-				(at 0 3.175 0)
+				(at -5.08 5.715 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3199,8 +3194,17 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
-				(at 0 5.08 0)
+			(property "Value" "AP2112K-3.3"
+				(at 0 5.715 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+				(at 0 8.255 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3208,8 +3212,8 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "http://www.advanced-monolithic.com/pdf/ds1117.pdf"
-				(at 2.54 -6.35 0)
+			(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2112.pdf"
+				(at 0 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3217,7 +3221,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "1A Low Dropout regulator, positive, 3.3V fixed output, SOT-223"
+			(property "Description" "600mA low dropout linear regulator, with enable pin, 3.8V-6V input voltage range, 3.3V fixed positive output, SOT-23-5"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3235,7 +3239,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "SOT?223*TabPin2*"
+			(property "ki_fp_filters" "SOT?23?5*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3244,10 +3248,10 @@
 					(hide yes)
 				)
 			)
-			(symbol "AMS1117-3.3_0_1"
+			(symbol "AP2112K-3.3_0_1"
 				(rectangle
-					(start -5.08 -5.08)
-					(end 5.08 1.905)
+					(start -5.08 4.445)
+					(end 5.08 -5.08)
 					(stroke
 						(width 0.254)
 						(type default)
@@ -3257,11 +3261,11 @@
 					)
 				)
 			)
-			(symbol "AMS1117-3.3_1_1"
+			(symbol "AP2112K-3.3_1_1"
 				(pin power_in line
-					(at 0 -7.62 90)
+					(at -7.62 2.54 0)
 					(length 2.54)
-					(name "GND"
+					(name "VIN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3276,10 +3280,10 @@
 						)
 					)
 				)
-				(pin power_out line
-					(at 7.62 0 180)
+				(pin power_in line
+					(at 0 -7.62 90)
 					(length 2.54)
-					(name "VO"
+					(name "GND"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3294,10 +3298,10 @@
 						)
 					)
 				)
-				(pin power_in line
+				(pin input line
 					(at -7.62 0 0)
 					(length 2.54)
-					(name "VI"
+					(name "EN"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3305,6 +3309,42 @@
 						)
 					)
 					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin no_connect line
+					(at 5.08 0 180)
+					(length 2.54) hide
+					(name "NC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_out line
+					(at 7.62 2.54 180)
+					(length 2.54)
+					(name "VOUT"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -5303,12 +5343,6 @@
 		(uuid "09e0f85a-7d49-4e5e-bd3f-75b24230032c")
 	)
 	(junction
-		(at 309.88 106.045)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "101e647c-2cd1-41d7-b0a2-b5fcfc629a5e")
-	)
-	(junction
 		(at 49.53 211.455)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5333,10 +5367,22 @@
 		(uuid "252e696e-4603-4d53-b503-a6750166cd41")
 	)
 	(junction
+		(at 314.96 102.87)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "28de54a1-de0d-4b36-9eb1-0057bb397457")
+	)
+	(junction
 		(at 238.125 42.545)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "374efd1b-5e01-40c4-95e0-6b73369aa79f")
+	)
+	(junction
+		(at 314.96 100.33)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "38b0c29b-7765-4ead-a9b5-a2d1c2c0bdc3")
 	)
 	(junction
 		(at 33.02 45.085)
@@ -5357,10 +5403,22 @@
 		(uuid "66d6479d-ff15-48ec-9e38-7c1f1e6f166e")
 	)
 	(junction
+		(at 337.82 100.33)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "6ae664df-01c9-4098-97f6-48f9dd7f4da9")
+	)
+	(junction
 		(at 49.53 226.695)
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "6d1bb8f5-a4df-40a9-b466-6156e8c6e85f")
+	)
+	(junction
+		(at 326.39 113.03)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "733ae8c3-db00-444d-8491-252cee2fa10f")
 	)
 	(junction
 		(at 303.53 46.99)
@@ -5373,12 +5431,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "7c6cda36-87a3-4082-bbf6-f27ff73d4311")
-	)
-	(junction
-		(at 321.945 116.205)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "83f99f13-4311-4c94-b897-852e9270cd85")
 	)
 	(junction
 		(at 84.455 143.51)
@@ -5397,12 +5449,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "91b3f29b-bd94-441d-ab33-672a3420684b")
-	)
-	(junction
-		(at 332.105 106.045)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "a17519d7-4d14-488f-9820-fab4f1d20c79")
 	)
 	(junction
 		(at 85.725 179.07)
@@ -5471,10 +5517,6 @@
 		(uuid "325a069d-a50f-4eff-abeb-fd5226762dea")
 	)
 	(no_connect
-		(at 307.34 100.965)
-		(uuid "39ac40b5-d913-4d07-beb1-78e18236a4c3")
-	)
-	(no_connect
 		(at 215.265 85.725)
 		(uuid "3c2c3d2c-be6e-4f63-b7fe-dbf0209f8127")
 	)
@@ -5485,6 +5527,10 @@
 	(no_connect
 		(at 48.26 53.34)
 		(uuid "4956a906-8cfe-4544-bf5a-4b664a0a877f")
+	)
+	(no_connect
+		(at 311.15 105.41)
+		(uuid "4be1c0a0-ad30-4b4d-a995-4e380cf7fb8a")
 	)
 	(no_connect
 		(at 306.07 175.26)
@@ -5601,6 +5647,16 @@
 	(no_connect
 		(at 212.725 164.465)
 		(uuid "dc972b5a-a4a5-4353-ad22-7d8cce9ebcf4")
+	)
+	(wire
+		(pts
+			(xy 314.96 113.03) (xy 326.39 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "022b674d-c2ef-428f-b8a7-777c1fdb9d48")
 	)
 	(wire
 		(pts
@@ -5721,16 +5777,6 @@
 			(type default)
 		)
 		(uuid "1c7df7eb-7c7c-433a-b539-01ba22501bc1")
-	)
-	(wire
-		(pts
-			(xy 321.945 116.205) (xy 332.105 116.205)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "1e5aa596-152e-4f33-a566-bea252134c0d")
 	)
 	(wire
 		(pts
@@ -5884,13 +5930,13 @@
 	)
 	(wire
 		(pts
-			(xy 332.105 114.935) (xy 332.105 116.205)
+			(xy 337.82 97.79) (xy 337.82 100.33)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "343cc8f2-4412-46fb-85fe-532cc0a1a68d")
+		(uuid "341246c9-b6c9-489a-a0fb-1538684d30c2")
 	)
 	(wire
 		(pts
@@ -6024,16 +6070,6 @@
 	)
 	(wire
 		(pts
-			(xy 321.945 113.665) (xy 321.945 116.205)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "40f23bf2-798a-4820-8061-d04b5fe7b9fd")
-	)
-	(wire
-		(pts
 			(xy 60.325 18.415) (xy 63.5 18.415)
 		)
 		(stroke
@@ -6062,16 +6098,6 @@
 		)
 		(uuid "49a4fe92-7340-41d3-9da0-2003e3f4ae9c")
 	)
-	(wire
-		(pts
-			(xy 332.105 106.045) (xy 332.105 107.315)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "4a08c28c-19a5-466b-9ffe-a46abecacab2")
-	)
 	(polyline
 		(pts
 			(xy 240.03 14.605) (xy 273.685 14.605)
@@ -6081,6 +6107,16 @@
 			(type default)
 		)
 		(uuid "4b562e63-1bfc-49af-98ee-8651897e004f")
+	)
+	(wire
+		(pts
+			(xy 314.96 100.33) (xy 318.77 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4b896357-b49c-42a3-b6d1-9e09b8e3c9f7")
 	)
 	(polyline
 		(pts
@@ -6254,6 +6290,26 @@
 	)
 	(wire
 		(pts
+			(xy 314.96 102.87) (xy 314.96 105.41)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ef86825-40c1-4b2e-8add-158a4ea63ba1")
+	)
+	(wire
+		(pts
+			(xy 311.15 100.33) (xy 314.96 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "73fc5a3a-05a9-4f0d-9433-caa1be88fec0")
+	)
+	(wire
+		(pts
 			(xy 353.06 175.26) (xy 353.06 176.53)
 		)
 		(stroke
@@ -6261,16 +6317,6 @@
 			(type default)
 		)
 		(uuid "750b6fc0-9d91-4867-be44-b4b620fc5c2f")
-	)
-	(wire
-		(pts
-			(xy 309.88 106.045) (xy 314.325 106.045)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "753d70ad-4a63-401f-bed1-844ead064c1d")
 	)
 	(wire
 		(pts
@@ -6392,6 +6438,16 @@
 		)
 		(uuid "91cec396-1ed7-4fc1-a36d-89faee933204")
 	)
+	(wire
+		(pts
+			(xy 318.77 102.87) (xy 314.96 102.87)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "951a01b7-a76e-433b-8f10-3695e0c8f7bb")
+	)
 	(polyline
 		(pts
 			(xy 198.755 14.605) (xy 240.03 14.605)
@@ -6421,16 +6477,6 @@
 			(type default)
 		)
 		(uuid "9a2a6832-9e94-41f7-9538-8e8d7936a1b7")
-	)
-	(wire
-		(pts
-			(xy 309.88 114.935) (xy 309.88 116.205)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "9a8d1093-c747-4e14-9950-60424ef52aa9")
 	)
 	(wire
 		(pts
@@ -6474,16 +6520,6 @@
 	)
 	(wire
 		(pts
-			(xy 309.88 116.205) (xy 321.945 116.205)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a66408e3-c83d-47ad-9bf3-870e2fb4dcbc")
-	)
-	(wire
-		(pts
 			(xy 83.82 18.415) (xy 89.535 18.415)
 		)
 		(stroke
@@ -6521,16 +6557,6 @@
 			(type default)
 		)
 		(uuid "ace2aec9-a7e4-4bc8-8c8a-2596e9bd0e52")
-	)
-	(wire
-		(pts
-			(xy 309.88 106.045) (xy 309.88 107.315)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ad649a70-2fad-440b-b9ec-d85b4dbb2bd8")
 	)
 	(wire
 		(pts
@@ -6584,6 +6610,16 @@
 	)
 	(wire
 		(pts
+			(xy 326.39 113.03) (xy 337.82 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "b72ce03a-4e28-47db-9e1f-4207177511aa")
+	)
+	(wire
+		(pts
 			(xy 215.265 42.545) (xy 238.125 42.545)
 		)
 		(stroke
@@ -6614,6 +6650,16 @@
 	)
 	(wire
 		(pts
+			(xy 326.39 110.49) (xy 326.39 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bdfd6340-17dd-42d4-afc5-bc132bc496f5")
+	)
+	(wire
+		(pts
 			(xy 118.745 143.51) (xy 111.125 143.51)
 		)
 		(stroke
@@ -6641,16 +6687,6 @@
 			(type default)
 		)
 		(uuid "c406d2dc-9b7d-43b5-b0e9-1606135f8416")
-	)
-	(wire
-		(pts
-			(xy 321.945 116.205) (xy 321.945 118.11)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c5a30e64-645e-411d-bcfc-49c6ed4f08dc")
 	)
 	(wire
 		(pts
@@ -6814,7 +6850,7 @@
 	)
 	(wire
 		(pts
-			(xy 293.37 103.505) (xy 297.18 103.505)
+			(xy 297.18 102.87) (xy 300.99 102.87)
 		)
 		(stroke
 			(width 0)
@@ -6834,13 +6870,13 @@
 	)
 	(wire
 		(pts
-			(xy 332.105 106.045) (xy 332.105 104.775)
+			(xy 337.82 100.33) (xy 337.82 105.41)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f108862e-aaf1-4ef1-82c2-de736bbd1921")
+		(uuid "f108281c-3b76-4ca8-b923-2ad079224a44")
 	)
 	(polyline
 		(pts
@@ -6851,6 +6887,16 @@
 			(type default)
 		)
 		(uuid "f2d1d918-6e9a-4c7a-924d-8b9aeab256c4")
+	)
+	(wire
+		(pts
+			(xy 326.39 113.03) (xy 326.39 116.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f58949cc-0771-46e6-857a-9a1e63ae3fd1")
 	)
 	(wire
 		(pts
@@ -6874,23 +6920,13 @@
 	)
 	(wire
 		(pts
-			(xy 307.34 106.045) (xy 309.88 106.045)
+			(xy 314.96 102.87) (xy 314.96 100.33)
 		)
 		(stroke
 			(width 0)
 			(type default)
 		)
-		(uuid "f80616c2-670d-42c1-bfa1-d606efeb285c")
-	)
-	(wire
-		(pts
-			(xy 329.565 106.045) (xy 332.105 106.045)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f8f4d6ce-83a0-4ecf-8def-48d49d0e728d")
+		(uuid "fa112cbf-65e9-4af8-977d-4cc0d2f14bbf")
 	)
 	(wire
 		(pts
@@ -6901,6 +6937,16 @@
 			(type default)
 		)
 		(uuid "fcac510a-a075-4d89-b822-3404f1ccfc1e")
+	)
+	(wire
+		(pts
+			(xy 334.01 100.33) (xy 337.82 100.33)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "fd226d32-0f52-454c-bd9a-e77ca47d0597")
 	)
 	(rectangle
 		(start 186.69 17.78)
@@ -7904,7 +7950,7 @@
 	)
 	(global_label "VSPLY"
 		(shape input)
-		(at 293.37 103.505 180)
+		(at 297.18 102.87 180)
 		(fields_autoplaced yes)
 		(effects
 			(font
@@ -7914,7 +7960,7 @@
 		)
 		(uuid "c65032f5-96c1-4661-a8af-5bb29f97fb2d")
 		(property "Intersheetrefs" "${INTERSHEET_REFS}"
-			(at 284.7 103.505 0)
+			(at 288.51 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -8301,6 +8347,84 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:C")
+		(at 314.96 109.22 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "0c5cd576-3293-4442-937e-5752f0b31f3c")
+		(property "Reference" "C6"
+			(at 317.881 108.0079 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1u"
+			(at 317.881 110.4321 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 315.9252 113.03 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_Samsung-Electro-Mechanics-CL10A105KO8NNNC_C1592.html"
+			(at 314.96 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 314.96 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C1592"
+			(at 314.96 109.22 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ae604c8d-d7ce-4255-9fa4-b4b4a968ba75")
+		)
+		(pin "2"
+			(uuid "a47d52aa-185f-4de1-8c42-af390653d3ac")
+		)
+		(instances
+			(project "3mode_controller"
+				(path "/64deb2d4-0f1e-4037-b447-7d4c34ae11e6"
+					(reference "C6")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "TP4046:TP4056")
 		(at 64.135 158.75 0)
 		(unit 1)
@@ -8507,7 +8631,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "SS14"
+		(property "Value" "VS-10BQ015HM3/5BT"
 			(at 120.777 150.1196 90)
 			(effects
 				(font
@@ -8516,7 +8640,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SMA"
+		(property "Footprint" "Diode_SMD:D_SMB"
 			(at 118.745 148.59 0)
 			(effects
 				(font
@@ -8525,7 +8649,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://datasheet.lcsc.com/lcsc/2204121115_MDD-Microdiode-Electronics--SS14_C2480.pdf"
+		(property "Datasheet" "https://www.lcsc.com/product-detail/Schottky-Diodes_Vishay-Intertech-VS-10BQ015HM3-5BT_C413465.html"
 			(at 118.745 148.59 0)
 			(effects
 				(font
@@ -8543,7 +8667,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C2480"
+		(property "LCSC" "C413465"
 			(at 118.745 148.59 0)
 			(effects
 				(font
@@ -9303,78 +9427,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 321.945 118.11 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2fca14a6-9e8a-4802-bf8a-b840cfa8e099")
-		(property "Reference" "#PWR026"
-			(at 321.945 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 321.945 122.2431 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 321.945 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 321.945 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 321.945 118.11 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "31293762-8c65-49e3-91bb-c1eff282839b")
-		)
-		(instances
-			(project "3mode_controller"
-				(path "/64deb2d4-0f1e-4037-b447-7d4c34ae11e6"
-					(reference "#PWR026")
-					(unit 1)
-				)
-			)
-			(project "smoke_extractorV1_1"
-				(path "/9c1091b5-dc9c-4275-a62f-af3d6f92e0db"
-					(reference "#PWR0111")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:Conn_01x02_Socket")
 		(at 34.29 213.36 0)
 		(mirror y)
@@ -9544,7 +9596,7 @@
 	)
 	(symbol
 		(lib_id "Switch:SW_SPDT")
-		(at 302.26 103.505 0)
+		(at 306.07 102.87 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -9553,7 +9605,7 @@
 		(fields_autoplaced yes)
 		(uuid "355f7abd-acaf-404f-90ff-15db6f1e07cb")
 		(property "Reference" "SW4"
-			(at 302.26 96.4397 0)
+			(at 306.07 95.8047 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9561,7 +9613,7 @@
 			)
 		)
 		(property "Value" "SW_SPDT"
-			(at 302.26 98.8639 0)
+			(at 306.07 98.2289 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9569,7 +9621,7 @@
 			)
 		)
 		(property "Footprint" "Button_Switch_THT:SW_Slide_1P2T_CK_OS102011MS2Q"
-			(at 302.26 103.505 0)
+			(at 306.07 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9578,7 +9630,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.lcsc.com/product-detail/Slide-Switches_SHOU-HAN-SK12D07VG5_C431548.html"
-			(at 302.26 103.505 0)
+			(at 306.07 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9587,7 +9639,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 302.26 103.505 0)
+			(at 306.07 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9596,7 +9648,7 @@
 			)
 		)
 		(property "LCSC" "C431548"
-			(at 302.26 103.505 0)
+			(at 306.07 102.87 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -10623,6 +10675,72 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 326.39 116.84 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "74294b9c-4a92-44e5-82da-c2a7e396a6f8")
+		(property "Reference" "#PWR039"
+			(at 326.39 123.19 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 326.39 120.9731 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 326.39 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 326.39 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 326.39 116.84 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "7af60858-ee88-44aa-a145-c92dd15bcc22")
+		)
+		(instances
+			(project "3mode_controller"
+				(path "/64deb2d4-0f1e-4037-b447-7d4c34ae11e6"
+					(reference "#PWR039")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 89.535 29.845 270)
 		(unit 1)
@@ -10775,85 +10893,6 @@
 			(project "smoke_extractorV1_1"
 				(path "/9c1091b5-dc9c-4275-a62f-af3d6f92e0db"
 					(reference "#PWR0116")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Regulator_Linear:AMS1117-3.3")
-		(at 321.945 106.045 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "7fa72b1e-a55d-4a17-860c-3089e4b5bb97")
-		(property "Reference" "U5"
-			(at 321.945 99.9957 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "AMS1117-3.3"
-			(at 321.945 102.4199 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Package_TO_SOT_SMD:SOT-223-3_TabPin2"
-			(at 321.945 100.965 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/product-detail/Linear-Voltage-Regulators-LDO_GUOXIN-JIAPIN-SEMICONDUCTOR-AMS1117-3-3_C2992570.html"
-			(at 324.485 112.395 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 321.945 106.045 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C2992570"
-			(at 321.945 106.045 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "fc8efe23-5c16-4e1d-a73e-098588a71c65")
-		)
-		(pin "2"
-			(uuid "24982cbf-5390-45a4-a860-15739562d02d")
-		)
-		(pin "3"
-			(uuid "6297f2bf-53db-46e2-ac77-7478074dc2e3")
-		)
-		(instances
-			(project "3mode_controller"
-				(path "/64deb2d4-0f1e-4037-b447-7d4c34ae11e6"
-					(reference "U5")
 					(unit 1)
 				)
 			)
@@ -12496,7 +12535,7 @@
 	)
 	(symbol
 		(lib_id "power:+3.3V")
-		(at 332.105 104.775 0)
+		(at 337.82 97.79 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -12505,7 +12544,7 @@
 		(fields_autoplaced yes)
 		(uuid "bfe55747-09ec-4c85-8e27-38b487bf71ac")
 		(property "Reference" "#PWR027"
-			(at 332.105 108.585 0)
+			(at 337.82 101.6 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12514,7 +12553,7 @@
 			)
 		)
 		(property "Value" "+3.3V"
-			(at 332.105 100.6419 0)
+			(at 337.82 93.6569 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12522,7 +12561,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 332.105 104.775 0)
+			(at 337.82 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12531,7 +12570,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 332.105 104.775 0)
+			(at 337.82 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12540,7 +12579,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 332.105 104.775 0)
+			(at 337.82 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12819,15 +12858,16 @@
 	)
 	(symbol
 		(lib_id "Device:C")
-		(at 309.88 111.125 0)
+		(at 337.82 109.22 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(uuid "cba37738-76d0-4ff7-9a01-4e7752d0ea63")
-		(property "Reference" "C7"
-			(at 313.055 109.9708 0)
+		(fields_autoplaced yes)
+		(uuid "c8e751a9-46e2-41cf-8840-6c530b8dd04d")
+		(property "Reference" "C9"
+			(at 340.741 108.0079 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12835,8 +12875,8 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10u"
-			(at 313.055 112.395 0)
+		(property "Value" "1u"
+			(at 340.741 110.4321 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12844,8 +12884,8 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A_Pad1.58x1.35mm_HandSolder"
-			(at 310.8452 114.935 0)
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric_Pad1.08x0.95mm_HandSolder"
+			(at 338.7852 113.03 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12853,8 +12893,8 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.lcsc.com/product-detail/Tantalum-Capacitors_TORCH-CA45-A-16V-10-F-K_C185774.html"
-			(at 309.88 111.125 0)
+		(property "Datasheet" "https://www.lcsc.com/product-detail/Multilayer-Ceramic-Capacitors-MLCC-SMD-SMT_Samsung-Electro-Mechanics-CL10A105KO8NNNC_C1592.html"
+			(at 337.82 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12863,7 +12903,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 309.88 111.125 0)
+			(at 337.82 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12871,8 +12911,8 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C185774"
-			(at 309.88 111.125 0)
+		(property "LCSC" "C1592"
+			(at 337.82 109.22 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12881,15 +12921,15 @@
 			)
 		)
 		(pin "1"
-			(uuid "8cdcb2ae-a78b-4c0a-b8df-5e2ffbfc59b8")
+			(uuid "2b40ea87-bd78-4caa-a3a6-528237fae19f")
 		)
 		(pin "2"
-			(uuid "a6259638-0044-4d53-8de9-67ec2d7e9333")
+			(uuid "6baaf70a-0910-4ec9-926d-9ac6c53838c3")
 		)
 		(instances
 			(project "3mode_controller"
 				(path "/64deb2d4-0f1e-4037-b447-7d4c34ae11e6"
-					(reference "C7")
+					(reference "C9")
 					(unit 1)
 				)
 			)
@@ -13774,6 +13814,92 @@
 		)
 	)
 	(symbol
+		(lib_id "Regulator_Linear:AP2112K-3.3")
+		(at 326.39 102.87 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "e855563f-200e-45d5-a63c-3676a9eaec49")
+		(property "Reference" "U3"
+			(at 326.39 94.2805 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "AP2112K-3.3"
+			(at 326.39 96.7048 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23-5"
+			(at 326.39 94.615 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/AP2112.pdf"
+			(at 326.39 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "600mA low dropout linear regulator, with enable pin, 3.8V-6V input voltage range, 3.3V fixed positive output, SOT-23-5"
+			(at 326.39 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C51118"
+			(at 326.39 102.87 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "06557674-a015-4a46-b0ab-8f76f705c783")
+		)
+		(pin "1"
+			(uuid "50912cc4-75d0-428a-9570-373f9394f419")
+		)
+		(pin "5"
+			(uuid "ae962025-3d0c-4a5b-86f2-4c5eea6cfb26")
+		)
+		(pin "4"
+			(uuid "c40f9e08-4e46-469b-baa6-edb39a13e572")
+		)
+		(pin "2"
+			(uuid "7a018d1d-1438-4fe6-ade6-f056b3e42b61")
+		)
+		(instances
+			(project "3mode_controller"
+				(path "/64deb2d4-0f1e-4037-b447-7d4c34ae11e6"
+					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "Switch:SW_Push")
 		(at 63.5 28.575 270)
 		(unit 1)
@@ -14009,84 +14135,6 @@
 			(project "3mode_controller"
 				(path "/64deb2d4-0f1e-4037-b447-7d4c34ae11e6"
 					(reference "#PWR09")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C")
-		(at 332.105 111.125 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "fd6a8ae0-245f-45de-90de-2723ca082e42")
-		(property "Reference" "C8"
-			(at 335.28 109.9708 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "10u"
-			(at 335.28 112.395 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-3216-18_Kemet-A_Pad1.58x1.35mm_HandSolder"
-			(at 333.0702 114.935 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/product-detail/Tantalum-Capacitors_TORCH-CA45-A-16V-10-F-K_C185774.html"
-			(at 332.105 111.125 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 332.105 111.125 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C185774"
-			(at 332.105 111.125 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f100d77c-4aa6-481a-ac98-5f1fa7e7643b")
-		)
-		(pin "2"
-			(uuid "ebeb9d0a-411b-4e01-b3b2-a9c402d1d927")
-		)
-		(instances
-			(project "3mode_controller"
-				(path "/64deb2d4-0f1e-4037-b447-7d4c34ae11e6"
-					(reference "C8")
 					(unit 1)
 				)
 			)

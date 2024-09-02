@@ -1,6 +1,6 @@
 {
   "board": {
-    "active_layer": 0,
+    "active_layer": 37,
     "active_layer_preset": "",
     "auto_track_width": true,
     "hidden_netclasses": [],
@@ -84,10 +84,10 @@
         "window": {
           "display": 1,
           "maximized": false,
-          "pos_x": -2134,
-          "pos_y": 142,
-          "size_x": 1440,
-          "size_y": 875
+          "pos_x": -2129,
+          "pos_y": 235,
+          "size_x": 1972,
+          "size_y": 1064
         }
       },
       {
@@ -96,8 +96,8 @@
         "window": {
           "display": 0,
           "maximized": true,
-          "pos_x": 0,
-          "pos_y": 25,
+          "pos_x": -2038,
+          "pos_y": 118,
           "size_x": 1440,
           "size_y": 819
         }
