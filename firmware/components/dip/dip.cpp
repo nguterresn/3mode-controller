@@ -5,7 +5,7 @@
 #include <stdint.h>
 
 static SemaphoreHandle_t sem;
-static void       dip_changed(void);
+static void              dip_changed(void);
 
 void dip_init()
 {
@@ -28,8 +28,10 @@ void dip_init()
 uint8_t dip_read(void)
 {
   // Note: GPIO_DIP_1 holds the LSB.
-  return (digitalRead(GPIO_DIP_4) & 0x01) | ((digitalRead(GPIO_DIP_3) & 0x01) << 1) |
-         ((digitalRead(GPIO_DIP_2) & 0x01) << 2) | ((digitalRead(GPIO_DIP_1) & 0x01) << 3);
+  return (digitalRead(GPIO_DIP_4) & 0x01) |
+         ((digitalRead(GPIO_DIP_3) & 0x01) << 1) |
+         ((digitalRead(GPIO_DIP_2) & 0x01) << 2) |
+         ((digitalRead(GPIO_DIP_1) & 0x01) << 3);
 }
 
 static void dip_changed(void)

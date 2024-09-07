@@ -21,15 +21,15 @@
 #define GPIO_JOYSTICK_Y_IRQ 14
 #define GPIO_JOYSTICK_X_IRQ 17
 
-#define GPIO_RF_SPI_CE      4  // whatever
-#define GPIO_RF_SPI_CNS     10 // SPI3
-#define GPIO_RF_SPI_SCK     12 // SPI3
-#define GPIO_RF_SPI_MOSI    11 // SPI3
-#define GPIO_RF_SPI_MISO    13 // SPI3
+#define GPIO_RF_SPI_CE   4  // whatever
+#define GPIO_RF_SPI_CNS  10 // SPI3
+#define GPIO_RF_SPI_SCK  12 // SPI3
+#define GPIO_RF_SPI_MOSI 11 // SPI3
+#define GPIO_RF_SPI_MISO 13 // SPI3
 
-#define GPIO_DIP_1          6
-#define GPIO_DIP_2          7
-#define GPIO_DIP_3          8
-#define GPIO_DIP_4          9
+#define GPIO_DIP_1 6
+#define GPIO_DIP_2 7
+#define GPIO_DIP_3 8
+#define GPIO_DIP_4 9
 
 #endif /* GPIO_LIST_H */

@@ -14,7 +14,9 @@ struct js_stamp {
 
 // Acording to the nRF24L01+ datasheet:
 // > LSB is written first.
-const uint8_t address[] = { 0x1A, 0xFF, 0x00, 0xFF, 0x00, 0xFF };                // Addresses are 40 bit hex
+const uint8_t address[] = {
+  0x1A, 0xFF, 0x00, 0xFF, 0x00, 0xFF
+}; // Addresses are 40 bit hex
 
 #ifdef __cplusplus
 }

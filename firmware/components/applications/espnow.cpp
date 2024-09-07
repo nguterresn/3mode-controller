@@ -1,12 +1,15 @@
 #include "espnow.h"
-#include "esp_now.h"
 #include "WiFi.h"
+#include "esp_now.h"
 
 // Note: Attention: the bit 0 of the first byte of MAC address can not be 1.
-// For example, the MAC address can set to be “1a:XX:XX:XX:XX:XX”, but can not be “15:XX:XX:XX:XX:XX”.
-static esp_now_peer_info_t peer_info = { .peer_addr = { 0x1A, 0xFF, 0x00, 0xFF, 0x00, 0xFF },
-                                         .channel = 0,
-                                         .encrypt = false };
+// For example, the MAC address can set to be “1a:XX:XX:XX:XX:XX”, but can not
+// be “15:XX:XX:XX:XX:XX”.
+static esp_now_peer_info_t peer_info = {
+  .peer_addr = { 0x1A, 0xFF, 0x00, 0xFF, 0x00, 0xFF },
+  .channel   = 0,
+  .encrypt   = false
+};
 
 void espnow_init(void)
 {
@@ -19,7 +22,9 @@ void espnow_init(void)
 
 int espnow_send(struct js_stamp* stamp)
 {
-  esp_err_t result = esp_now_send(peer_info.peer_addr, (uint8_t*)&stamp, sizeof(struct js_stamp));
+  esp_err_t result = esp_now_send(peer_info.peer_addr,
+                                  (uint8_t*)&stamp,
+                                  sizeof(struct js_stamp));
 
   return (int)result;
 }

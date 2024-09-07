@@ -1,10 +1,7 @@
 # https://clang-format-configurator.site/
 Language: Cpp
-IndentWidth: 4
-TabWidth: 4
-UseTab: ForIndentation
 AllowShortIfStatementsOnASingleLine: Never
-ColumnLimit: 100
+ColumnLimit: 80
 MaxEmptyLinesToKeep: 1
 KeepEmptyLinesAtTheStartOfBlocks: false
 KeepEmptyLinesAtEOF: true

@@ -1,19 +1,17 @@
 #include "Arduino.h"
 #include "HardwareSerial.h"
-#include "gpio_list.h"
-#include "dip.h"
-#include "modes.h"
-#include "joystick.h"
 #include "app.h"
+#include "dip.h"
 #include "espnow.h"
+#include "gpio_list.h"
+#include "joystick.h"
+#include "modes.h"
 #include "nrf24.h"
-#include <cstdint>
-#include <sys/types.h>
 
 static struct joystick js_x;
 static struct joystick js_y;
-static struct app app_esp_now;
-static struct app app_nrf;
+static struct app      app_esp_now;
+static struct app      app_nrf;
 
 static void check_and_change_app(void);
 
