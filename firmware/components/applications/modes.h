@@ -5,6 +5,4 @@
 #define DIP_NRF     (0x02)
 #define DIP_BLE     (0x03)
 
-#define MASKED(dip, mask) (dip == mask)
-
 #endif /* MASKS_H_ */

@@ -2,7 +2,7 @@
 #include "HardwareSerial.h"
 #include "gpio_list.h"
 #include "dip.h"
-#include "masks.h"
+#include "modes.h"
 #include "joystick.h"
 #include "app.h"
 #include "espnow.h"

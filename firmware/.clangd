@@ -1,11 +1,4 @@
 CompileFlags:
   CompilationDatabase: build
+  Add: [-isysroot=/Users/nunonogueira/.espressif/tools/xtensa-esp32s3-elf/esp-12.2.0_20230208/xtensa-esp32s3-elf/xtensa-esp32s3-elf]
   Remove: [-fno-tree-switch-conversion, -fstrict-volatile-bitfields, -mlongcalls]
-
-
-Diagnostics:
-  Suppress: [
-    undeclared_var_use_suggest,
-    typecheck_decl_incomplete_type,
-    incomplete_member_access
-  ]
