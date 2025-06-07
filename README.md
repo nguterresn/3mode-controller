@@ -2,6 +2,8 @@
 
 This versatile hardware controller is designed to seamlessly integrate with a variety of wireless communication protocols, making it an ideal choice for hobbyist projects, DIY electronics, and prototyping. With support for **ESPNow**, **nRF24**, and **Bluetooth**, this controller offers unparalleled flexibility for creating custom communication setups across different platforms.
 
+![IMG_9709 – grande](https://github.com/user-attachments/assets/cd167782-1966-4320-903e-c4307257ab5c)
+
 ### **Key Features:**
 
 - **ESPNow**: Leverage ESP32's ESPNow protocol for fast, low-power, peer-to-peer communication between ESP32 devices. Perfect for IoT projects where devices need to communicate without relying on Wi-Fi or internet connections.
